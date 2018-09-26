@@ -1,16 +1,24 @@
-== recursive Downloader ==
+# Recursive Downloader 
 
 The Recursive Downloader takes a file, like we ofteh see in Shellshock injections, extracts all urls and downloads the file, he does it as long as text (shell) files are found. Otherwise he displays a sha256 hash of the file.
 
 Finally the folder is compressed.
 
-Example Usage:
+## Setup
+First of all you should install the requirements
+
+```
+pip3 install -r requirements.txt
+```
+
+
+## Example Usage:
 
 ```
 python3 /usr/local/bin/dow.py http://xxx.xx.xx.xx/worldwest.sh
 ```
 
-Example Output:
+## Example Output:
 
 ```
 {'http://xxxx/scanner.sh', 'http://xxxx/miner.sh'}

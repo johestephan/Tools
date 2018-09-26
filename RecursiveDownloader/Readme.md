@@ -5,12 +5,14 @@ The Recursive Downloader takes a file, like we ofteh see in Shellshock injection
 Finally the folder is compressed.
 
 Example Usage:
-'''
+
+```
 python3 /usr/local/bin/dow.py http://xxx.xx.xx.xx/worldwest.sh
-'''
+```
 
 Example Output:
-'''
+
+```
 {'http://xxxx/scanner.sh', 'http://xxxx/miner.sh'}
 {'http://xxxx/bruteforce_ssh_arm', 'http://xxxxx/tcpconnect_zmap_arm', 'http://xxxxx/tcpconnect_zmap_386', 'http://xxx/bruteforce_ssh_386'}
 /opt/uploads/bruteforce_ssh_arm : c86cc841ad3f37c138b676b5a31aa5d5422d06e2a1d69f0fd62b6892fdaf574b
@@ -20,6 +22,5 @@ Example Output:
 {'https://xxxxxxxx/cnrig-0.1.5-linux-x86_64', 'https://xxxxx/rPi-xmrig-gcc7.3.0/blob/master/xmrig?raw=true'}
 /opt/uploads/cnrig-0.1.5-linux-x86_64 : c890d18fe3753a9ea4d026fc713247a9b83070b6fe40539779327501916be031
 /opt/uploads/xmrig?raw=true : b8687ab465c280847193d36a67c390616933032db31932d8ac191041343b68f6
-
-'''
+```
 

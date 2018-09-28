@@ -12,6 +12,13 @@ SPATH="/opt/samples/"
 import string 
 
 
+def isHTML(text):
+    blacklist = ["<html","<doctype","<link"]
+    for word in blacklist:
+        if word in text.lower():
+            return True
+    return False
+
 def zipit(folder):
 	import subprocess
 	cmd = ['7z', '-pinfected', 'a', '%ssamples-%s.zip'%(SPATH,datetime.datetime.now()), '/opt/uploads/*', '-mx9']
@@ -40,17 +47,21 @@ def getURL(text):
     return URLlist
 
 def ana(thisfile):
-	if istext(thisfile):
-		f = open(thisfile, 'r')
-		data = getURL(f.read())
-		print(data)
-		if len(data) > 0:
-			for item in data:
-				downIt(item)
-		else:
-			print("Well thats it...")
-	else:
-		print("%s : %s" % (thisfile, pChecksum(thisfile)))	
+    if istext(thisfile):
+        f = open(thisfile, 'r')
+        data = f.read()
+        if isHTML(data):
+            print("Looks like HTML, maybe WGET does the trick!")
+        else:
+            urls = getURL(data)
+            #print(urls)
+            if len(urls) > 0:
+                for item in urls:
+                    downIt(item)
+            else:
+                print("Well thats it...")
+    else:
+        print("%s : %s" % (thisfile, pChecksum(thisfile)))	
 		
     
 

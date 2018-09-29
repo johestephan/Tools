@@ -67,13 +67,15 @@ def ana(thisfile):
 
 def downIt(url):
     #try:
-		r = requests.get(url, stream=True, timeout=1)
-		if r.status_code == 200:
-			FPATH =  DPATH % (url.split("/")[-1])
-			with open(FPATH , 'wb') as f:
-				r.raw.decode_content = True
-				shutil.copyfileobj(r.raw, f)   
-			ana(FPATH)
+        r = requests.get(url, stream=True, timeout=1)
+        if r.status_code == 200:
+            FPATH =  DPATH % (url.split("/")[-1])
+            with open(FPATH , 'wb') as f:
+                r.raw.decode_content = True
+                shutil.copyfileobj(r.raw, f)   
+                ana(FPATH)
+        else:
+            print("Thats not working, %s" % (r.status_code))
     #except:
     #    print("No download possible via %s" % (url))
     #    exit(0)
